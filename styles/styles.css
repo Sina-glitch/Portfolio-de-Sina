@@ -1530,3 +1530,8 @@ overflow-x: hidden;
   }
 }
 /*# sourceMappingURL=styles.css.map */
+
+.centered-list {
+  text-align: center;
+  margin: auto;
+}
