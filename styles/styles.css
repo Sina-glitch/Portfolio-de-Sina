@@ -105,7 +105,11 @@ section {
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
 }
-
+.sec6 {
+  display: none;
+  -webkit-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
+}
 
 
 .animbtn {
@@ -133,6 +137,10 @@ section {
   -webkit-animation: leftanim ;
   animation-duration: 3500ms;
 }
+.animbtn6 {
+  -webkit-animation: leftanim ;
+  animation-duration: 4000ms;
+}
 
 .animbtn i {
   animation: iconesmouth 3s;
@@ -153,7 +161,9 @@ section {
 .animbtn5 i {
   animation: iconesmouth 7s;
 }
-
+.animbtn6 i {
+  animation: iconesmouth 8000ms;
+}
 
 
 @keyframes iconesmouth {
