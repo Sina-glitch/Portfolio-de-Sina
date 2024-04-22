@@ -141,9 +141,23 @@
 
             </p>
 
-            <a href="file:///C:/BTS/Portfolio-de-Sina/Documentation" target="_blank" class="documentation-button">
-                Documentation
-            </a>
+            <button onclick="showDocumentation()">Documentation</button>
+
+            var documentationWindow = window.open("", "DocumentationWindow", "width=600,height=400");
+            documentationWindow.document.write("<h1>Liste des fichiers de la documentation</h1>");
+            documentationWindow.document.write("<ul>");
+            var files = [
+                "fichier1.txt",
+                "fichier2.pdf",
+                "fichier3.docx"
+                // Ajoutez ici la liste des fichiers de votre répertoire
+            ];
+            files.forEach(function(file) {
+                documentationWindow.document.write("<li>" + file + "</li>");
+            });
+            documentationWindow.document.write("</ul>");
+        }
+        </script>
             <div class="portfolios"></div>
             <p class="port-text">
 
