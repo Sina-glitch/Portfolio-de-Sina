@@ -122,46 +122,45 @@
                 <div class="hover-items">
                     <h3>Application temps d'écran en java</h3>
                     <div class="icons">
-                        <!-- <a href="https://github.com/AdguardTeam/AdGuardHome"  target="_blank"  class="icon"> 
-                                <i class="fab fa-github"></i>
-                            </a> -->
+                        <button onclick="showDocumentation()">Documentation</button> <!-- Bouton Documentation -->
                         <a href="media/Projet_Java_Temps_Ecran.pdf" target="_blank" class="icon">
                             <i class="fa-solid fa-download"></i>
                         </a>
-
                     </div>
                 </div>
-
             </div>
             <p class="port-text">
-                Nous avons réaliser une application en java dans le but d'alerter les employées quand ils passent
-                certaines heures devant leurs écran pour éviter les
-                probléme de santé et etre plus productif.
+                Nous avons réalisé une application en Java dans le but d'alerter les employés quand ils passent
+                certaines heures devant leurs écrans pour éviter les problèmes de santé et être plus productif.
                 Cette application a plusieurs fonctionnalités.
-
             </p>
-
-            <button onclick="showDocumentation()">Documentation</button>
-
-            <script>
-                function showDocumentation() {
-                    var documentationWindow = window.open("", "DocumentationWindow", "width=600,height=400");
-                    documentationWindow.document.write("<h1>Liste des fichiers de la documentation</h1>");
-                    documentationWindow.document.write("<ul>");
-                    var files = [
-                        "A_remplir.png",
-                        "fichier2.pdf",
-                        "fichier3.docx"
-                        // Ajoutez ici la liste des fichiers de votre répertoire
-                    ];
-                    files.forEach(function(file) {
-                        documentationWindow.document.write("<li>" + file + "</li>");
-                    });
-                    documentationWindow.document.write("</ul>");
-                }
-                </script>
-
-                
+        </div>
+        
+        <script>
+            function showDocumentation() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var files = JSON.parse(xhr.responseText);
+                        var select = document.createElement("select");
+                        files.forEach(function (file) {
+                            var option = document.createElement("option");
+                            option.value = file;
+                            option.text = file;
+                            select.appendChild(option);
+                        });
+                        select.addEventListener("change", function () {
+                            var selectedFile = this.value;
+                            window.open("file:///C:/BTS/Portfolio-de-Sina/Documentation/" + selectedFile, "_blank");
+                        });
+                        document.body.appendChild(select);
+                    }
+                };
+                xhr.open("GET", "list_files.php?dir=C:/BTS/Portfolio-de-Sina/Documentation", true); // Adjust URL as needed
+                xhr.send();
+            }
+        </script>
+        
             <div class="portfolios"></div>
             <p class="port-text">
 
